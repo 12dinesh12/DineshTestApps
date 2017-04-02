@@ -1,0 +1,72 @@
+﻿<head>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/ProjectScripts/Weather/App.js"></script>
+    <script src="~/ProjectScripts/Weather/Service.js"></script>
+    <script src="~/ProjectScripts/Weather/WeatherController.js"></script>
+    <link href="~/Content/custom.css" rel="stylesheet" />
+</head>
+
+<body ng-app="WeatherApp" ng-controller="WeatherController" class="container" ng-cloak>
+
+    <form name="form" class="form-horizontal novalidate">
+        <div class="form-group">
+            <div class="row">
+                <div class="col col-lg-1"><label for="country" class="control-label">Country:</label></div>
+                <div class="col-md-3 control-group error">
+                    <input type="text" class="form-control" id="country" ng-model="CountryName" required>
+                </div>
+                <div class="col col-xs-1">
+                    <button type="submit" class="btn btn-primary" ng-click="GetAllCitiesByCountry()">GetCities</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col col-lg-1"><label for="cityCombo" class="control-label">Cities:</label></div>
+                <div class="col-xs-4">
+                    <select id="cityCombo" ng-model="selectedItem" class="form-control" ng-change="CityValueChanged(selectedItem)">
+                        <option ng-repeat="city in Cities" value="{{city}}">{{city}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-2">
+                    <span id="errorDiv" ng-if="error">{{error}}</span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br />
+    <br />
+
+    <div ng-show="showWeatherTable" style="overflow: auto; max-height: 300px;">
+        <table>
+            <thead fix-head>
+                <tr>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>Sky Conditions</th>
+                    <th>Temprature</th>
+                    <th>Drew Point</th>
+                    <th>Max Characters</th>
+                    <th>Relative Humidity</th>
+                    <th>Pressure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{Location}}</td>
+                    <td>{{Time}}</td>
+                    <td>{{Wind}}</td>
+                    <td>{{SkyCondition}}</td>
+                    <td>{{Temprature}}</td>
+                    <td>{{DewPoint}}</td>
+                    <td>{{RelativeHumidity}}</td>
+                    <td>{{Pressure}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

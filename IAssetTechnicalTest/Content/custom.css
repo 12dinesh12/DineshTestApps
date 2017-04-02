@@ -1,0 +1,45 @@
+﻿body {
+    background-color: lightgrey;
+    padding-top: 70px;
+}
+
+[ng-cloak] {
+    display: none !important;
+}
+
+table, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+    table tr:nth-child(odd) {
+        background-color:lightgray;
+    }
+
+    table tr:nth-child(even) {
+        background-color: darkgray;
+    }
+    table th {
+        background-color:darkgray;
+        font:bold;
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+input {
+    max-width: 100%;
+}
+
+select {
+    max-width: 80%;
+}
+
+#errorDiv {
+    color: red;
+}
+
+.form-horizontal .control-label .form-control {
+    text-align: left !important;
+}
